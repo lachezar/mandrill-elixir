@@ -39,7 +39,7 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post!(endpoint, JSX.encode! body).body
+    Mandrill.post!(endpoint, JSX.encode!(body), [], httpoison_opts()).body
   end
 
   @doc """
@@ -50,5 +50,12 @@ defmodule Mandrill do
   def key do
     Application.get_env(:mandrill, :key) ||
       System.get_env("MANDRILL_KEY")
+  end
+
+  @doc """
+  HTTPoison default request options
+  """
+  def httpoison_opts do
+    Application.get_env(:mandrill, :httpoison_opts, [])
   end
 end

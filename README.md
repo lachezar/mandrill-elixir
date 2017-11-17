@@ -9,7 +9,7 @@ Add ``mandrill`` to your dependencies in your ``mix.exs``.
 ```Elixir
 defp deps do
   [...
-   {:mandrill, "~> 0.4"}]
+   {:mandrill, github: "lachezar/mandrill-elixir"}]
 end
 ```
 
